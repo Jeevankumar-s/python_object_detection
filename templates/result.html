@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results</title>
+</head>
+<body>
+    <h1>Detection Results</h1>
+    <p>Detected objects in: {{ results.filename }}</p>
+    <ul>
+        {% for i in range(results.indexes|length) %}
+            <li>Object {{ i+1 }}: Confidence: {{ results.confidences[i] }}</li>
+        {% endfor %}
+    </ul>
+    <img src="{{ url_for('static', filename=results.filename) }}" alt="Detected Image">
+</body>
+</html>
